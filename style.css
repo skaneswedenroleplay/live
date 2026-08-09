@@ -1,7 +1,7 @@
 ```css
-/* ============================= */
+/* ========================================= */
 /* GRUNDINSTÄLLNINGAR */
-/* ============================= */
+/* ========================================= */
 
 * {
     box-sizing: border-box;
@@ -18,7 +18,7 @@ body {
 body {
     font-family: Arial, Helvetica, sans-serif;
 
-    /* Nästan svart, lite åt grått */
+    /* Nästan svart, men lite åt grått */
     background: #181818;
 
     color: white;
@@ -27,15 +27,14 @@ body {
 }
 
 
-/* ============================= */
-/* GRÅ ÖVERDEL */
-/* ============================= */
+/* ========================================= */
+/* TOPPEN */
+/* ========================================= */
 
 .topbar {
     width: 100%;
     height: 105px;
 
-    /* Grå färg */
     background: #555555;
 
     display: flex;
@@ -49,35 +48,41 @@ body {
 }
 
 
-/* ============================= */
+/* ========================================= */
 /* LOGGA */
-/* ============================= */
+/* ========================================= */
 
 .logo-link {
+    height: 100%;
+
     display: flex;
     align-items: center;
 
-    height: 100%;
+    text-decoration: none;
 }
 
 .logo {
-    max-height: 75px;
     max-width: 250px;
+    max-height: 75px;
 
     width: auto;
     height: auto;
 
     object-fit: contain;
+
+    display: block;
 }
 
 
-/* ============================= */
+/* ========================================= */
 /* MENYKNAPP */
-/* ============================= */
+/* ========================================= */
 
 .menu-button {
     width: 55px;
     height: 55px;
+
+    padding: 0;
 
     background: transparent;
 
@@ -86,8 +91,8 @@ body {
     display: flex;
     flex-direction: column;
 
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     gap: 7px;
 
@@ -104,7 +109,7 @@ body {
 
     border-radius: 3px;
 
-    transition: all 0.25s ease;
+    transition: width 0.25s ease;
 }
 
 .menu-button:hover span {
@@ -112,23 +117,22 @@ body {
 }
 
 
-/* ============================= */
-/* HEMSIDAN */
-/* ============================= */
+/* ========================================= */
+/* HEMSIDA */
+/* ========================================= */
 
 .main-content {
     min-height: calc(100vh - 105px);
 
-    /* Nästan svart, lite grått */
     background: #181818;
 
     padding: 40px;
 }
 
 
-/* ============================= */
+/* ========================================= */
 /* BILDER */
-/* ============================= */
+/* ========================================= */
 
 .gallery {
     width: 100%;
@@ -165,9 +169,9 @@ body {
 }
 
 
-/* ============================= */
+/* ========================================= */
 /* BLURRIG BAKGRUND */
-/* ============================= */
+/* ========================================= */
 
 .overlay {
     position: fixed;
@@ -197,9 +201,9 @@ body {
 }
 
 
-/* ============================= */
-/* MENYN */
-/* ============================= */
+/* ========================================= */
+/* MENY FRÅN HÖGER */
+/* ========================================= */
 
 .side-menu {
     position: fixed;
@@ -226,9 +230,9 @@ body {
 }
 
 
-/* ============================= */
-/* STÄNG-KNAPP */
-/* ============================= */
+/* ========================================= */
+/* X-KNAPP */
+/* ========================================= */
 
 .close-button {
     position: absolute;
@@ -248,13 +252,15 @@ body {
     font-size: 42px;
     font-weight: 200;
 
+    line-height: 1;
+
     cursor: pointer;
 }
 
 
-/* ============================= */
+/* ========================================= */
 /* MENY-LÄNKAR */
-/* ============================= */
+/* ========================================= */
 
 .side-menu nav {
     display: flex;
@@ -270,13 +276,15 @@ body {
     text-decoration: none;
 
     font-size: 28px;
+    font-weight: 500;
 
     padding: 18px 15px;
 
     border-radius: 8px;
 
-    transition: background 0.2s ease,
-                padding-left 0.2s ease;
+    transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
 }
 
 .side-menu nav a:hover {
@@ -286,9 +294,9 @@ body {
 }
 
 
-/* ============================= */
+/* ========================================= */
 /* MOBIL */
-/* ============================= */
+/* ========================================= */
 
 @media (max-width: 700px) {
 
@@ -299,8 +307,8 @@ body {
     }
 
     .logo {
-        max-height: 55px;
         max-width: 190px;
+        max-height: 55px;
     }
 
     .main-content {
