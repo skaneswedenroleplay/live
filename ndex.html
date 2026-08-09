@@ -1,0 +1,92 @@
+```html
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vår hemsida</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOPPEN -->
+    <header class="topbar">
+
+        <!-- LOGGA -->
+        <a href="#" class="logo-link">
+            <img src="images/logo.png" class="logo" alt="Logga">
+        </a>
+
+        <!-- MENYKNAPP -->
+        <button class="menu-button" id="menuButton" aria-label="Öppna meny">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <!-- HUVUDINNEHÅLL -->
+    <main class="main-content">
+
+        <section class="hero">
+            <h1>Välkommen</h1>
+            <p>Här kan vi lägga upp bilder och annat innehåll.</p>
+        </section>
+
+
+        <!-- BILDER -->
+        <section class="gallery">
+
+            <div class="image-box">
+                <img src="images/bild1.jpg" alt="Bild 1">
+            </div>
+
+            <div class="image-box">
+                <img src="images/bild2.jpg" alt="Bild 2">
+            </div>
+
+            <div class="image-box">
+                <img src="images/bild3.jpg" alt="Bild 3">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BLUR / MÖRK BAKGRUND -->
+    <div class="overlay" id="overlay"></div>
+
+
+    <!-- MENY -->
+    <aside class="side-menu" id="sideMenu">
+
+        <button class="close-button" id="closeButton">
+            ×
+        </button>
+
+        <nav>
+
+            <a href="#">Hem</a>
+
+            <a href="#">Bilder</a>
+
+            <a href="#">Om oss</a>
+
+            <a href="#">Kontakt</a>
+
+        </nav>
+
+    </aside>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
