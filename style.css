@@ -28,19 +28,12 @@ body {
 
 .topbar {
     width: 100%;
-
-    /* Anpassar höjden efter skärmen */
-    height: clamp(80px, 9vw, 120px);
+    height: 105px;
 
     background: #555555;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-    /* Anpassar avståndet efter skärmen */
-    padding-left: clamp(15px, 3vw, 45px);
-    padding-right: clamp(15px, 3vw, 45px);
 
     position: relative;
     z-index: 100;
@@ -52,10 +45,20 @@ body {
 /* ================================= */
 
 .logo-link {
+    position: absolute;
+
+    /*
+    Samma avstånd från vänster
+    som menyknappen har från höger.
+    */
+    left: 35px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
     display: flex;
     align-items: center;
-
-    height: 100%;
 
     text-decoration: none;
 }
@@ -64,16 +67,44 @@ body {
     display: block;
 
     /*
-    Loggan blir större på större skärmar
-    men får en maxstorlek.
+    Fast storlek så att loggan
+    inte ändrar storlek beroende
+    på skärmen.
     */
-    width: clamp(180px, 25vw, 340px);
-
+    width: 330px;
     height: auto;
 
-    max-height: 95%;
+    max-height: 90px;
 
     object-fit: contain;
+}
+
+
+/* ================================= */
+/* VÄLKOMMEN-TEXT */
+/* ================================= */
+
+.welcome-text {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    white-space: nowrap;
 }
 
 
@@ -82,10 +113,18 @@ body {
 /* ================================= */
 
 .menu-button {
-    width: clamp(45px, 5vw, 65px);
-    height: clamp(45px, 5vw, 65px);
+    position: absolute;
+
+    right: 35px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
 
     background: transparent;
+
     border: none;
 
     display: flex;
@@ -94,34 +133,28 @@ body {
     align-items: center;
     justify-content: center;
 
-    gap: clamp(5px, 0.6vw, 8px);
+    gap: 7px;
 
     cursor: pointer;
 
     padding: 0;
 }
 
-
-/* De tre strecken */
-
 .menu-button span {
     display: block;
 
-    width: clamp(28px, 3vw, 40px);
-    height: clamp(2px, 0.25vw, 4px);
+    width: 34px;
+    height: 3px;
 
-    background: white;
+    background: #ffffff;
 
     border-radius: 10px;
 
-    transition: 0.2s ease;
+    transition: width 0.2s ease;
 }
 
-
-/* När man håller musen över */
-
 .menu-button:hover span {
-    width: clamp(32px, 3.3vw, 44px);
+    width: 38px;
 }
 
 
@@ -132,7 +165,7 @@ body {
 .main-content {
     width: 100%;
 
-    min-height: calc(100vh - clamp(80px, 9vw, 120px));
+    min-height: calc(100vh - 105px);
 
     background: #181818;
 }
@@ -178,11 +211,7 @@ body {
     top: 0;
     right: 0;
 
-    /*
-    Halva skärmen på dator.
-    */
     width: 50%;
-
     height: 100vh;
 
     background: #303030;
@@ -193,9 +222,7 @@ body {
 
     transition: transform 0.4s ease;
 
-    padding-top: clamp(80px, 8vw, 120px);
-    padding-left: clamp(25px, 4vw, 60px);
-    padding-right: clamp(25px, 4vw, 60px);
+    padding: 100px 55px;
 }
 
 .side-menu.active {
@@ -210,18 +237,19 @@ body {
 .close-button {
     position: absolute;
 
-    top: clamp(15px, 2vw, 25px);
-    right: clamp(15px, 2vw, 30px);
+    top: 22px;
+    right: 30px;
 
-    width: clamp(40px, 4vw, 55px);
-    height: clamp(40px, 4vw, 55px);
+    width: 50px;
+    height: 50px;
 
     background: transparent;
+
     border: none;
 
     color: white;
 
-    font-size: clamp(35px, 4vw, 48px);
+    font-size: 42px;
     font-weight: 200;
 
     line-height: 1;
@@ -238,7 +266,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    gap: clamp(5px, 0.8vw, 12px);
+    gap: 8px;
 }
 
 .side-menu nav a {
@@ -246,10 +274,10 @@ body {
 
     text-decoration: none;
 
-    font-size: clamp(20px, 2.2vw, 32px);
+    font-size: 28px;
     font-weight: 500;
 
-    padding: clamp(12px, 1.5vw, 20px);
+    padding: 18px 15px;
 
     border-radius: 8px;
 
@@ -261,7 +289,7 @@ body {
 .side-menu nav a:hover {
     background: #414141;
 
-    padding-left: clamp(20px, 2.2vw, 30px);
+    padding-left: 25px;
 }
 
 
@@ -269,33 +297,17 @@ body {
 /* MINDRE SKÄRMAR */
 /* ================================= */
 
+/*
+   Vi ändrar INTE placeringen eller
+   storleken på innehållet beroende
+   på skärmen.
+   
+   Endast menyn anpassas så att
+   den fortfarande fungerar på mobil.
+*/
+
 @media (max-width: 700px) {
 
-    .topbar {
-        height: 80px;
-
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .logo {
-        width: 190px;
-        max-height: 70px;
-    }
-
-    .menu-button {
-        width: 50px;
-        height: 50px;
-    }
-
-    .menu-button span {
-        width: 30px;
-        height: 3px;
-    }
-
-    /*
-    På mobil tar menyn nästan hela skärmen.
-    */
     .side-menu {
         width: 85%;
     }
@@ -303,22 +315,10 @@ body {
 
 
 /* ================================= */
-/* MYCKET SMÅ MOBILER */
+/* MYCKET SMÅ SKÄRMAR */
 /* ================================= */
 
 @media (max-width: 400px) {
-
-    .topbar {
-        height: 70px;
-    }
-
-    .logo {
-        width: 160px;
-    }
-
-    .menu-button span {
-        width: 27px;
-    }
 
     .side-menu {
         width: 90%;
