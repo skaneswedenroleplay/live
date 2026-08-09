@@ -8,46 +8,42 @@ const overlay = document.getElementById("overlay");
 
 /* ÖPPNA MENYN */
 
-function openMenu() {
+menuButton.addEventListener("click", function () {
 
     sideMenu.classList.add("active");
     overlay.classList.add("active");
 
-}
+});
 
 
-/* STÄNG MENYN */
+/* STÄNG MENYN MED X */
 
-function closeMenu() {
+closeButton.addEventListener("click", function () {
 
     sideMenu.classList.remove("active");
     overlay.classList.remove("active");
 
-}
+});
 
 
-/* KLICKA PÅ MENYKNAPPEN */
+/* KLICKA PÅ BLURRADE OMRÅDET */
 
-menuButton.addEventListener("click", openMenu);
+overlay.addEventListener("click", function () {
 
+    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
 
-/* KLICKA PÅ X */
-
-closeButton.addEventListener("click", closeMenu);
-
-
-/* KLICKA UTANFÖR MENYN */
-
-overlay.addEventListener("click", closeMenu);
+});
 
 
 /* ESC STÄNGER MENYN */
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function (event) {
 
     if (event.key === "Escape") {
 
-        closeMenu();
+        sideMenu.classList.remove("active");
+        overlay.classList.remove("active");
 
     }
 
