@@ -1,7 +1,6 @@
-```css
-/* ========================================= */
+/* ================================= */
 /* GRUNDINSTÄLLNINGAR */
-/* ========================================= */
+/* ================================= */
 
 * {
     box-sizing: border-box;
@@ -17,23 +16,21 @@ body {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-
-    /* Nästan svart, men lite åt grått */
     background: #181818;
-
     color: white;
-
     overflow-x: hidden;
 }
 
 
-/* ========================================= */
+/* ================================= */
 /* TOPPEN */
-/* ========================================= */
+/* ================================= */
 
 .topbar {
     width: 100%;
-    height: 105px;
+
+    /* Anpassar höjden efter skärmen */
+    height: clamp(80px, 9vw, 120px);
 
     background: #555555;
 
@@ -41,51 +38,54 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 35px;
+    /* Anpassar avståndet efter skärmen */
+    padding-left: clamp(15px, 3vw, 45px);
+    padding-right: clamp(15px, 3vw, 45px);
 
     position: relative;
     z-index: 100;
 }
 
 
-/* ========================================= */
+/* ================================= */
 /* LOGGA */
-/* ========================================= */
+/* ================================= */
 
 .logo-link {
-    height: 100%;
-
     display: flex;
     align-items: center;
+
+    height: 100%;
 
     text-decoration: none;
 }
 
 .logo {
-    max-width: 250px;
-    max-height: 75px;
+    display: block;
 
-    width: auto;
+    /*
+    Loggan blir större på större skärmar
+    men får en maxstorlek.
+    */
+    width: clamp(180px, 25vw, 340px);
+
     height: auto;
 
-    object-fit: contain;
+    max-height: 95%;
 
-    display: block;
+    object-fit: contain;
 }
 
 
-/* ========================================= */
+/* ================================= */
 /* MENYKNAPP */
-/* ========================================= */
+/* ================================= */
 
 .menu-button {
-    width: 55px;
-    height: 55px;
-
-    padding: 0;
+    width: clamp(45px, 5vw, 65px);
+    height: clamp(45px, 5vw, 65px);
 
     background: transparent;
-
     border: none;
 
     display: flex;
@@ -94,84 +94,53 @@ body {
     align-items: center;
     justify-content: center;
 
-    gap: 7px;
+    gap: clamp(5px, 0.6vw, 8px);
 
     cursor: pointer;
+
+    padding: 0;
 }
+
+
+/* De tre strecken */
 
 .menu-button span {
     display: block;
 
-    width: 34px;
-    height: 3px;
+    width: clamp(28px, 3vw, 40px);
+    height: clamp(2px, 0.25vw, 4px);
 
-    background: #ffffff;
+    background: white;
 
-    border-radius: 3px;
+    border-radius: 10px;
 
-    transition: width 0.25s ease;
+    transition: 0.2s ease;
 }
+
+
+/* När man håller musen över */
 
 .menu-button:hover span {
-    width: 38px;
+    width: clamp(32px, 3.3vw, 44px);
 }
 
 
-/* ========================================= */
-/* HEMSIDA */
-/* ========================================= */
+/* ================================= */
+/* HUVUDSIDAN */
+/* ================================= */
 
 .main-content {
-    min-height: calc(100vh - 105px);
+    width: 100%;
+
+    min-height: calc(100vh - clamp(80px, 9vw, 120px));
 
     background: #181818;
-
-    padding: 40px;
 }
 
 
-/* ========================================= */
-/* BILDER */
-/* ========================================= */
-
-.gallery {
-    width: 100%;
-    max-width: 1300px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-.image-box {
-    width: 100%;
-
-    aspect-ratio: 16 / 10;
-
-    background: #252525;
-
-    border-radius: 12px;
-
-    overflow: hidden;
-}
-
-.image-box img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-
-/* ========================================= */
+/* ================================= */
 /* BLURRIG BAKGRUND */
-/* ========================================= */
+/* ================================= */
 
 .overlay {
     position: fixed;
@@ -184,7 +153,6 @@ body {
     -webkit-backdrop-filter: blur(9px);
 
     opacity: 0;
-
     visibility: hidden;
 
     transition:
@@ -196,14 +164,13 @@ body {
 
 .overlay.active {
     opacity: 1;
-
     visibility: visible;
 }
 
 
-/* ========================================= */
+/* ================================= */
 /* MENY FRÅN HÖGER */
-/* ========================================= */
+/* ================================= */
 
 .side-menu {
     position: fixed;
@@ -211,7 +178,11 @@ body {
     top: 0;
     right: 0;
 
+    /*
+    Halva skärmen på dator.
+    */
     width: 50%;
+
     height: 100vh;
 
     background: #303030;
@@ -222,7 +193,9 @@ body {
 
     transition: transform 0.4s ease;
 
-    padding: 100px 55px;
+    padding-top: clamp(80px, 8vw, 120px);
+    padding-left: clamp(25px, 4vw, 60px);
+    padding-right: clamp(25px, 4vw, 60px);
 }
 
 .side-menu.active {
@@ -230,26 +203,25 @@ body {
 }
 
 
-/* ========================================= */
-/* X-KNAPP */
-/* ========================================= */
+/* ================================= */
+/* STÄNG-KNAPP */
+/* ================================= */
 
 .close-button {
     position: absolute;
 
-    top: 22px;
-    right: 30px;
+    top: clamp(15px, 2vw, 25px);
+    right: clamp(15px, 2vw, 30px);
 
-    width: 50px;
-    height: 50px;
+    width: clamp(40px, 4vw, 55px);
+    height: clamp(40px, 4vw, 55px);
 
     background: transparent;
-
     border: none;
 
     color: white;
 
-    font-size: 42px;
+    font-size: clamp(35px, 4vw, 48px);
     font-weight: 200;
 
     line-height: 1;
@@ -258,16 +230,15 @@ body {
 }
 
 
-/* ========================================= */
+/* ================================= */
 /* MENY-LÄNKAR */
-/* ========================================= */
+/* ================================= */
 
 .side-menu nav {
     display: flex;
-
     flex-direction: column;
 
-    gap: 8px;
+    gap: clamp(5px, 0.8vw, 12px);
 }
 
 .side-menu nav a {
@@ -275,10 +246,10 @@ body {
 
     text-decoration: none;
 
-    font-size: 28px;
+    font-size: clamp(20px, 2.2vw, 32px);
     font-weight: 500;
 
-    padding: 18px 15px;
+    padding: clamp(12px, 1.5vw, 20px);
 
     border-radius: 8px;
 
@@ -290,47 +261,66 @@ body {
 .side-menu nav a:hover {
     background: #414141;
 
-    padding-left: 25px;
+    padding-left: clamp(20px, 2.2vw, 30px);
 }
 
 
-/* ========================================= */
-/* MOBIL */
-/* ========================================= */
+/* ================================= */
+/* MINDRE SKÄRMAR */
+/* ================================= */
 
 @media (max-width: 700px) {
 
     .topbar {
         height: 80px;
 
-        padding: 0 18px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .logo {
-        max-width: 190px;
-        max-height: 55px;
+        width: 190px;
+        max-height: 70px;
     }
 
-    .main-content {
-        min-height: calc(100vh - 80px);
-
-        padding: 25px 18px;
+    .menu-button {
+        width: 50px;
+        height: 50px;
     }
 
-    .gallery {
-        grid-template-columns: 1fr;
+    .menu-button span {
+        width: 30px;
+        height: 3px;
+    }
 
-        gap: 18px;
+    /*
+    På mobil tar menyn nästan hela skärmen.
+    */
+    .side-menu {
+        width: 85%;
+    }
+}
+
+
+/* ================================= */
+/* MYCKET SMÅ MOBILER */
+/* ================================= */
+
+@media (max-width: 400px) {
+
+    .topbar {
+        height: 70px;
+    }
+
+    .logo {
+        width: 160px;
+    }
+
+    .menu-button span {
+        width: 27px;
     }
 
     .side-menu {
-        width: 85%;
-
-        padding: 85px 30px;
-    }
-
-    .side-menu nav a {
-        font-size: 24px;
+        width: 90%;
     }
 }
-```
