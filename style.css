@@ -1,0 +1,344 @@
+```css
+/* ============================= */
+/* GRUNDINSTÄLLNINGAR */
+/* ============================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #151515;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* ============================= */
+/* TOPBAR */
+/* ============================= */
+
+.topbar {
+    width: 100%;
+    height: 90px;
+
+    background: #555555;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* ============================= */
+/* LOGGA */
+/* ============================= */
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-height: 65px;
+    max-width: 220px;
+
+    object-fit: contain;
+}
+
+
+/* ============================= */
+/* MENYKNAPP */
+/* ============================= */
+
+.menu-button {
+    width: 48px;
+    height: 48px;
+
+    background: transparent;
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 6px;
+
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 30px;
+    height: 3px;
+
+    background: white;
+
+    border-radius: 3px;
+
+    transition: 0.25s ease;
+}
+
+.menu-button:hover span {
+    width: 34px;
+}
+
+
+/* ============================= */
+/* HUVUDINNEHÅLL */
+/* ============================= */
+
+.main-content {
+    min-height: calc(100vh - 90px);
+
+    background: #171717;
+
+    padding: 50px;
+}
+
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero {
+    max-width: 1200px;
+
+    margin: 0 auto 40px auto;
+
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #bdbdbd;
+    font-size: 18px;
+}
+
+
+/* ============================= */
+/* BILDER */
+/* ============================= */
+
+.gallery {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.image-box {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+
+    background: #282828;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ============================= */
+/* OVERLAY */
+/* ============================= */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+
+    z-index: 200;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ============================= */
+/* SIDOMENY */
+/* ============================= */
+
+.side-menu {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100vh;
+
+    background: #303030;
+
+    z-index: 300;
+
+    transform: translateX(100%);
+
+    transition: transform 0.4s ease;
+
+    padding: 90px 60px;
+}
+
+.side-menu.active {
+    transform: translateX(0);
+}
+
+
+/* ============================= */
+/* STÄNG-KNAPP */
+/* ============================= */
+
+.close-button {
+    position: absolute;
+
+    top: 22px;
+    right: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 42px;
+    font-weight: 200;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* ============================= */
+/* MENY-LÄNKAR */
+/* ============================= */
+
+.side-menu nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.side-menu nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 28px;
+    font-weight: 500;
+
+    padding: 18px 15px;
+
+    border-radius: 8px;
+
+    transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.side-menu nav a:hover {
+    background: #444444;
+
+    padding-left: 25px;
+}
+
+
+/* ============================= */
+/* MOBIL */
+/* ============================= */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        height: 75px;
+
+        padding: 0 18px;
+    }
+
+    .logo {
+        max-height: 50px;
+        max-width: 170px;
+    }
+
+    .main-content {
+        padding: 30px 18px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .side-menu {
+        width: 85%;
+
+        padding: 80px 30px;
+    }
+
+    .side-menu nav a {
+        font-size: 24px;
+    }
+}
+```
