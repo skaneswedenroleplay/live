@@ -1,18 +1,17 @@
-```html
-<!DOCTYPE html>
+
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Vår hemsida</title>
+    <title>Hemsida</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- TOPPEN -->
+    <!-- ÖVRE GRÅ DEL -->
     <header class="topbar">
 
         <!-- LOGGA -->
@@ -30,16 +29,11 @@
     </header>
 
 
-    <!-- HUVUDINNEHÅLL -->
+    <!-- HEMSIDA -->
     <main class="main-content">
 
-        <section class="hero">
-            <h1>Välkommen</h1>
-            <p>Här kan vi lägga upp bilder och annat innehåll.</p>
-        </section>
+        <!-- Lägg bilder och annat innehåll här -->
 
-
-        <!-- BILDER -->
         <section class="gallery">
 
             <div class="image-box">
@@ -59,27 +53,22 @@
     </main>
 
 
-    <!-- BLUR / MÖRK BAKGRUND -->
+    <!-- BLURRIG BAKGRUND NÄR MENYN ÄR ÖPPEN -->
     <div class="overlay" id="overlay"></div>
 
 
-    <!-- MENY -->
+    <!-- MENY FRÅN HÖGER -->
     <aside class="side-menu" id="sideMenu">
 
-        <button class="close-button" id="closeButton">
+        <button class="close-button" id="closeButton" aria-label="Stäng meny">
             ×
         </button>
 
         <nav>
-
             <a href="#">Hem</a>
-
             <a href="#">Bilder</a>
-
             <a href="#">Om oss</a>
-
             <a href="#">Kontakt</a>
-
         </nav>
 
     </aside>
