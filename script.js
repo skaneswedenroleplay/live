@@ -1,51 +1,83 @@
-```javascript
-const menuButton = document.getElementById("menuButton");
-const closeButton = document.getElementById("closeButton");
+document.addEventListener("DOMContentLoaded", function () {
 
-const sideMenu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
+    const menuButton = document.getElementById("menuButton");
+    const closeButton = document.getElementById("closeButton");
 
-
-/* ÖPPNA MENYN */
-
-menuButton.addEventListener("click", function () {
-
-    sideMenu.classList.add("active");
-    overlay.classList.add("active");
-
-});
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
 
 
-/* STÄNG MENYN MED X */
+    /* ================================= */
+    /* ÖPPNA MENYN */
+    /* ================================= */
 
-closeButton.addEventListener("click", function () {
+    function openMenu() {
 
-    sideMenu.classList.remove("active");
-    overlay.classList.remove("active");
+        sideMenu.classList.add("active");
+        overlay.classList.add("active");
 
-});
-
-
-/* KLICKA PÅ BLURRADE OMRÅDET */
-
-overlay.addEventListener("click", function () {
-
-    sideMenu.classList.remove("active");
-    overlay.classList.remove("active");
-
-});
+        document.body.style.overflow = "hidden";
+    }
 
 
-/* ESC STÄNGER MENYN */
+    /* ================================= */
+    /* STÄNG MENYN */
+    /* ================================= */
 
-document.addEventListener("keydown", function (event) {
-
-    if (event.key === "Escape") {
+    function closeMenu() {
 
         sideMenu.classList.remove("active");
         overlay.classList.remove("active");
 
+        document.body.style.overflow = "";
     }
 
+
+    /* ================================= */
+    /* MENYKNAPP */
+    /* ================================= */
+
+    menuButton.addEventListener("click", function () {
+
+        openMenu();
+
+    });
+
+
+    /* ================================= */
+    /* X-KNAPP */
+    /* ================================= */
+
+    closeButton.addEventListener("click", function () {
+
+        closeMenu();
+
+    });
+
+
+    /* ================================= */
+    /* KLICKA UTANFÖR MENYN */
+    /* ================================= */
+
+    overlay.addEventListener("click", function () {
+
+        closeMenu();
+
+    });
+
+
+    /* ================================= */
+    /* ESC STÄNGER MENYN */
+    /* ================================= */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            closeMenu();
+
+        }
+
+    });
+
 });
-```
