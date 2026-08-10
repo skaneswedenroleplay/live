@@ -1,4 +1,11 @@
 /* ================================= */
+/* GOOGLE FONT */
+/* ================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* ================================= */
 /* GRUNDINSTÄLLNINGAR */
 /* ================================= */
 
@@ -15,8 +22,8 @@ body {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #181818;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    background: #262626;
     color: white;
     overflow-x: hidden;
 }
@@ -30,13 +37,18 @@ body {
     width: 100%;
     height: 105px;
 
-    background: #555555;
+    background: #292929;
 
     display: flex;
     align-items: center;
 
-    position: relative;
-    z-index: 100;
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    /* Tunn linje under toppen */
+    border-bottom: 1px solid #3a3a3a;
 }
 
 
@@ -47,12 +59,7 @@ body {
 .logo-link {
     position: absolute;
 
-    /*
-    Samma avstånd från vänster
-    som menyknappen har från höger.
-    */
-    left: 35px;
-
+    left: 20px;
     top: 50%;
 
     transform: translateY(-50%);
@@ -66,15 +73,10 @@ body {
 .logo {
     display: block;
 
-    /*
-    Fast storlek så att loggan
-    inte ändrar storlek beroende
-    på skärmen.
-    */
-    width: 330px;
+    width: 400px;
     height: auto;
 
-    max-height: 90px;
+    max-height: 95px;
 
     object-fit: contain;
 }
@@ -94,9 +96,12 @@ body {
 
     margin: 0;
 
-    font-size: 38px;
+    font-family: "Poppins", Arial, sans-serif;
 
-    font-weight: 700;
+    font-size: 36px;
+    font-weight: 600;
+
+    letter-spacing: -0.5px;
 
     line-height: 1.1;
 
@@ -138,6 +143,8 @@ body {
     cursor: pointer;
 
     padding: 0;
+
+    z-index: 1100;
 }
 
 .menu-button span {
@@ -167,7 +174,7 @@ body {
 
     min-height: calc(100vh - 105px);
 
-    background: #181818;
+    background: #262626;
 }
 
 
@@ -192,7 +199,7 @@ body {
         opacity 0.35s ease,
         visibility 0.35s ease;
 
-    z-index: 200;
+    z-index: 2000;
 }
 
 .overlay.active {
@@ -216,7 +223,7 @@ body {
 
     background: #303030;
 
-    z-index: 300;
+    z-index: 3000;
 
     transform: translateX(100%);
 
@@ -255,6 +262,8 @@ body {
     line-height: 1;
 
     cursor: pointer;
+
+    z-index: 3100;
 }
 
 
@@ -273,6 +282,8 @@ body {
     color: white;
 
     text-decoration: none;
+
+    font-family: "Poppins", Arial, sans-serif;
 
     font-size: 28px;
     font-weight: 500;
@@ -294,19 +305,27 @@ body {
 
 
 /* ================================= */
-/* MINDRE SKÄRMAR */
+/* MOBIL */
 /* ================================= */
 
-/*
-   Vi ändrar INTE placeringen eller
-   storleken på innehållet beroende
-   på skärmen.
-   
-   Endast menyn anpassas så att
-   den fortfarande fungerar på mobil.
-*/
-
 @media (max-width: 700px) {
+
+    .logo {
+        width: 250px;
+        max-width: calc(100vw - 120px);
+    }
+
+    .logo-link {
+        left: 15px;
+    }
+
+    .welcome-text {
+        display: none;
+    }
+
+    .menu-button {
+        right: 20px;
+    }
 
     .side-menu {
         width: 85%;
@@ -319,6 +338,10 @@ body {
 /* ================================= */
 
 @media (max-width: 400px) {
+
+    .logo {
+        width: 220px;
+    }
 
     .side-menu {
         width: 90%;
